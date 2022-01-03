@@ -75,9 +75,23 @@ class App extends Component {
   sortByRating(a, b) {
     return b.rating - a.rating;
   }
+  calculateAvg(movies) {
+    const avg = (
+      movies.reduce((acc, curr) => {
+        return acc + curr.rating;
+      }, 0) / movies.length
+    ).toFixed(1);
+    return movies.length === 0 ? 0 : avg;
+  }
   render() {
     const { movies, loading } = this.state;
-    const { addMovie, increaseRating, decrementRating, deleteMovie } = this;
+    const {
+      addMovie,
+      increaseRating,
+      decrementRating,
+      deleteMovie,
+      calculateAvg,
+    } = this;
     movies.sort(this.sortByName);
     movies.sort(this.sortByRating);
     //calculate for average of ratings
@@ -88,7 +102,8 @@ class App extends Component {
     }
     return (
       <>
-        <h1>Random Movie Generator {movies.length}</h1>
+        <h1>Random Movie Generator </h1>
+        <h2>Average Rating: {calculateAvg(movies)}</h2>
         <button onClick={addMovie}>randomMovie</button>
         <ul>
           {movies

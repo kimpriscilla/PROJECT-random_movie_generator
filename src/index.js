@@ -102,23 +102,48 @@ class App extends Component {
     }
     return (
       <>
-        <h1>Random Movie Generator </h1>
-        <h2>Average Rating: {calculateAvg(movies)}</h2>
-        <button onClick={addMovie}>randomMovie</button>
-        <ul>
-          {movies
-            .map((movie) => {
-              return (
-                <li key={movie.id}>
-                  {movie.name}, Rating: {movie.rating}{" "}
-                  <button onClick={() => increaseRating(movie)}>+</button>
-                  <button onClick={() => decrementRating(movie)}>-</button>
-                  <button onClick={() => deleteMovie(movie.id)}>X</button>
-                </li>
-              );
-            })
-            .sort()}
-        </ul>
+        <div>
+          <h1>Random Movie Generator </h1>
+          <h2>Average Rating: {calculateAvg(movies)}</h2>
+        </div>
+        <div>
+          <div className="random">
+            <button className="randomButton" onClick={addMovie}>
+              randomMovie
+            </button>
+          </div>
+        </div>
+        <div className="idk">
+          <ul className="info">
+            {movies
+              .map((movie) => {
+                return (
+                  <li className="lists" key={movie.id}>
+                    {movie.name}, Rating: {movie.rating}{" "}
+                    <button
+                      className="increaseButton"
+                      onClick={() => increaseRating(movie)}
+                    >
+                      +
+                    </button>
+                    <button
+                      className="decreaseButton"
+                      onClick={() => decrementRating(movie)}
+                    >
+                      -
+                    </button>
+                    <button
+                      className="deleteButton"
+                      onClick={() => deleteMovie(movie.id)}
+                    >
+                      X
+                    </button>
+                  </li>
+                );
+              })
+              .sort()}
+          </ul>
+        </div>
       </>
     );
   }

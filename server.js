@@ -9,14 +9,13 @@ const Sequelize = require("sequelize");
 const app = express();
 
 //body parsing middleware for post & put routes
-
+app.use(express.json());
+app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/dist", static(path.join(__dirname, "dist")));
 
 app.get("/", (req, res, next) =>
   res.sendFile(path.join(__dirname, "index.html"))
 );
-
-app.use(express.json());
 
 app.get("/api/movies", async (req, res, next) => {
   try {

@@ -37,7 +37,7 @@ app.put("/api/movies/:id", async (req, res, next) => {
   try {
     let movie = await Movie.findByPk(req.params.id);
     // where do console.log show up?
-    console.log("-------------", movie);
+    //console.log("-------------", movie);
     await movie.update(req.body);
     res.send(movie);
   } catch (error) {

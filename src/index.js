@@ -25,7 +25,7 @@ class App extends Component {
     store.dispatch(
       loadMovies(movie)
       // type: "LOAD_MOVIES",
-      // movie: movie, //SENDING OVER AN ARRAY BC APP.GET IS ALREADY AN ARRAY OF OBJS
+      // movie: movie, //SENDING OVER AN ARRAY BC AXIOS.GET IS ALREADY AN ARRAY OF OBJS
     );
   }
   async addMovie() {

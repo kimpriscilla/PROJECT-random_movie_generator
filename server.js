@@ -5,7 +5,7 @@ const {
   syncAndSeed,
   models: { Movie },
 } = require("./db/server");
-const Sequelize = require("sequelize");
+
 const app = express();
 
 //body parsing middleware for post & put routes

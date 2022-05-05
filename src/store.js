@@ -1,4 +1,3 @@
-import { initial } from "lodash";
 import { applyMiddleware, createStore } from "redux";
 import loggerMiddleware from "redux-logger";
 
